@@ -1,8 +1,8 @@
 import { Component, DoCheck } from '@angular/core';
-import { ISettings } from '../models/products';
+import { ISettings } from '../../../models/products';
 
 @Component({
-  selector: 'app-content',
+  selector: 'app-counter-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
 })

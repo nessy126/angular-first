@@ -1,8 +1,8 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { ISettings } from '../../models/products';
+import { ISettings } from '../../../models/products';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-counter-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })

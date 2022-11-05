@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
-import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
-import { SettingsComponent } from './components/settings/settings.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ContentComponent } from '../app/components/counter/content/content.component';
+import { SettingsComponent } from '../app/components/counter/settings/settings.component';
+import { BindComponent } from '../app/components/bind/bind.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     HeaderComponent,
     ContentComponent,
     SettingsComponent,
+    BindComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
