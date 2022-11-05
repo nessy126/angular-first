@@ -1,0 +1,15 @@
+<div class=" border w-72 shadow-md container flex items-center text-black font-normal m-4 p-4 flex-col columns-1 justify-center mx-auto ">
+  <h2 class="font-bold">Settings</h2>
+  <div class="flex items-center flex-col columns-1 my-2">
+    <label class="mx-2" for="input-step">One step</label>
+    <input class="border  items-center" id="input-step" type="number" [(ngModel)]="oneStep" />
+  </div>
+  <div class="flex items-center flex-col columns-1 my-2">
+    <label class="mx-2" for="input-default ">Default value</label>
+    <input class="border items-center" id="input-default" type="number" [(ngModel)]="defaultNumber" />
+  </div>
+  <button class="button rounded font-medium border bg-blue-400 text-white px-4 py-1"
+  (click)="save()"
+  >Save</button>
+  <p>{{count}}</p>
+</div>

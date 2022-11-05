@@ -1,0 +1,27 @@
+<div class="content">
+  <div class="control flex">
+    <button
+      [disabled]="isTen"
+      class="bg-green-500 border py-2 px-4 rounded mr-2"
+      (click)="add()"
+    >
+      +
+    </button>
+    <p>{{ count }}</p>
+    <button
+      [disabled]="isNull"
+      class="bg-red-400 border py-2 px-4 rounded"
+      (click)="subtruct()"
+    >
+      -
+    </button>
+    <button
+      class="bg-yellow-400 border py-2 px-4 rounded"
+      (click)="defaultCount()"
+      [disabled]="isDisabled"
+    >
+      Reset
+    </button>
+  </div>
+  <app-settings [count]="count" (onSave)="getSettings($event)"></app-settings>
+</div>
