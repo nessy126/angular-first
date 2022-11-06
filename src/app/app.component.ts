@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { IProduct } from './models/products';
 import { ProductsService } from './services/products.service';
 import { Observable, tap } from 'rxjs';
+
+// @Input count: number;
 
 @Component({
   selector: 'app-root',

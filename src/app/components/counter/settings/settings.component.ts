@@ -13,13 +13,13 @@ export class SettingsComponent  {
   @Input() count: number = this.defaultNumber
   @Output() onSave = new EventEmitter()
 
-  public save(): void {
+  public save($event: object): void {
     const settings: ISettings = {
       step: this.oneStep < 1 ? 1 : this.oneStep,
       default: this.defaultNumber
     }
-    console.log(settings);
     this.onSave.emit(settings)
+    console.log(this.onSave);
   }
 
 

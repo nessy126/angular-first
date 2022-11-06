@@ -14,13 +14,25 @@ export class ContentComponent implements DoCheck {
   public isNull: boolean = false;
   public isTen: boolean = false;
 
-  public step: number = 1;
-  public default: number = 0;
+  public step: number = 3;
+  public default: number = 1;
 
   public ngDoCheck() { //после обновления
-    console.log('DoCheck');
-    this.isNull = this.count === this.default
-    this.isTen = this.count === 10
+    const isItNull = ():boolean => {
+      if (this.count - this.step < 0) {
+        return true
+      }
+      return false
+    }
+    const isItTen = ():boolean => {
+      if (this.count + this.step > 10) {
+        return true
+      }
+      return false
+    }
+
+    this.isNull = isItNull()
+    this.isTen = isItTen()
   }
 
   public add(): void {
@@ -38,6 +50,10 @@ export class ContentComponent implements DoCheck {
   }
 
   public getSettings(settings: ISettings): void {
+    if(settings.step === 0) {
+      this.step = 1
+    }
+
     this.step = settings.step
     this.default = settings.default
     this.count = settings.default

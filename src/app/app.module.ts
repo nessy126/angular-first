@@ -12,6 +12,7 @@ import { ContentComponent } from '../app/components/counter/content/content.comp
 import { SettingsComponent } from '../app/components/counter/settings/settings.component';
 import { BindComponent } from '../app/components/bind/bind.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { VocabularyComponent } from './components/vocabulary/vocabulary.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CounterComponent } from './components/counter/counter.component';
     ContentComponent,
     SettingsComponent,
     BindComponent,
-    CounterComponent
+    CounterComponent,
+    VocabularyComponent
   ],
   imports: [
     BrowserModule,
