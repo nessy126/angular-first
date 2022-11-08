@@ -6,6 +6,8 @@ import { IWords } from '../../models/words';
   templateUrl: './vocabulary.component.html',
   styleUrls: ['./vocabulary.component.css']
 })
+
+
 export class VocabularyComponent {
 public deutsch: string = ''
 public english: string = ''
@@ -13,6 +15,11 @@ public russian: string = ''
 
 public addWord(): void {
   console.log(this.deutsch);
+  const newWord: IWords = {
+    deutsch: this.deutsch,
+    english: this.english,
+    russian: this.russian
+  }
 }
 
 }
