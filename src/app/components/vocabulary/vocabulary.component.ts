@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IWords } from '../../models/words';
+import { words } from 'src/app/data/vocabulary';
+import { IWords, TypeOfWord2LabelMapping, TypeOfWordEnum } from '../../models/words';
 
 @Component({
   selector: 'app-vocabulary',
@@ -9,17 +10,27 @@ import { IWords } from '../../models/words';
 
 
 export class VocabularyComponent {
-public deutsch: string = ''
-public english: string = ''
-public russian: string = ''
+  public TypeOfWord2LabelMapping = TypeOfWord2LabelMapping
+  public types = Object.values(TypeOfWordEnum)
 
-public addWord(): void {
-  console.log(this.deutsch);
-  const newWord: IWords = {
-    deutsch: this.deutsch,
-    english: this.english,
-    russian: this.russian
+  public words = words
+  public type = TypeOfWordEnum.Nomen
+  public deutsch: string = ''
+  public english: string = ''
+  public russian: string = ''
+  public id: Date = new Date()
+
+  public addWord(): void {
+    console.log(this.deutsch);
+    const newWord: IWords = {
+      _id: this.id,
+      deutsch: this.deutsch,
+      english: this.english,
+      russian: this.russian,
+      typeOfWord: this.type,
+    }
+    words.push(newWord)
+    console.log(words);
   }
-}
 
 }

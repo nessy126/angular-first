@@ -1,26 +1,42 @@
 <div>
   <h1>Vocabulary</h1>
   <form
-    class="max-w-3xl container border rounded py-4 px-6 mb-2 flex ml-auto mr-auto justify-center items-center md"
+    class="max-w-4xl container border rounded py-4 px-6 mb-2 flex ml-auto mr-auto justify-center items-center md"
+    id="add-word"
   >
     <input
       [(ngModel)]="deutsch"
       class="border rounded mr-2 py-1 px-2"
       type="text"
-      placeholder="Deutsch das Wort"
+      placeholder="Deutsch"
+      name="deutsch"
     />
     <input
       [(ngModel)]="english"
       class="border rounded mr-2 py-1 px-2"
       type="text"
-      placeholder="English word"
+      placeholder="English"
+      name="english"
     />
     <input
       [(ngModel)]="russian"
       class="border rounded mr-2 py-1 px-2"
       type="text"
-      placeholder="Русское слово"
+      placeholder="Русский"
+      name="russian"
     />
+    <div class="border rounded mr-2 py-1 px-2">
+      <label for="type-word">Type word</label>
+      <select name="type-word" id=""
+      [(ngModel)]="type"
+      form="add-word"
+      required>
+        <option value=""></option>
+        <option [value]="type"  *ngFor="let type of types">
+          {{ TypeOfWord2LabelMapping[type] }}
+        </option>
+      </select>
+    </div>
     <button
       (click)="addWord()"
       class="border rounded mr-2 bg-blue-500 text-white px-4 py-1"
