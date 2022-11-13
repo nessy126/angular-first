@@ -13,6 +13,7 @@ import { SettingsComponent } from '../app/components/counter/settings/settings.c
 import { BindComponent } from '../app/components/bind/bind.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { VocabularyComponent } from './components/vocabulary/vocabulary.component';
+import { VocabularyListComponent } from './components/vocabulary/vocabulary-list/vocabulary-list.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { VocabularyComponent } from './components/vocabulary/vocabulary.componen
     SettingsComponent,
     BindComponent,
     CounterComponent,
-    VocabularyComponent
+    VocabularyComponent,
+    VocabularyListComponent
   ],
   imports: [
     BrowserModule,

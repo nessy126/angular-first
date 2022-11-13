@@ -1,0 +1,13 @@
+<h2>My vocabulary-list</h2>
+<ul class="border max-w-4xl px-20">
+  <li class="flex flex-row mb-2 justify-start py-2" *ngFor="let word of words">
+    <p class="border rounded mr-4 py-1 px-4">{{ word.deutsch }}</p>
+    <p class="border rounded mr-4 py-1 px-4">{{ word.english }}</p>
+    <p class="border rounded mr-4 py-1 px-4">{{ word.russian }}</p>
+    <p class="border rounded mr-4 py-1 px-4">{{ word.typeOfWord }}</p>
+    <div>
+      <button class="border rounded mr-4 py-1 px-4 bg-yellow-300">Edit</button>
+      <button class="border rounded mr-4 py-1 px-4 bg-blue-300">Delete</button>
+    </div>
+  </li>
+</ul>

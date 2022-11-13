@@ -1,13 +1,15 @@
 export enum TypeOfWordEnum {
   Nomen = "Nomen",
   Verb = "Verb",
-  Adjektive = "Adjektive"
+  Adjektive = "Adjektive",
+  Phrase = "Phrase"
 }
 
 export const TypeOfWord2LabelMapping = {
   [TypeOfWordEnum.Nomen]: "Nomen",
   [TypeOfWordEnum.Verb]: "Verb",
-  [TypeOfWordEnum.Adjektive]: "Adjektive"
+  [TypeOfWordEnum.Adjektive]: "Adjektive",
+  [TypeOfWordEnum.Phrase]: "Phrase"
 }
 
 // type ID = number | string

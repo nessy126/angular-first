@@ -21,7 +21,6 @@ export class VocabularyComponent {
   public id: Date = new Date()
 
   public addWord(): void {
-    console.log(this.deutsch);
     const newWord: IWords = {
       _id: this.id,
       deutsch: this.deutsch,
