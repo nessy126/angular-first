@@ -1,0 +1,31 @@
+<p
+  (click)="updatePhone()"
+[title]="phone">This phone is: {{ phone }}</p>
+<p [title]="user.name">Full Name: {{ user.name + " " + user.surname }}</p>
+<p [class]="user.surname">Full Name: {{ fullName }}</p>
+<p [innerHTML]="boldText"></p>
+
+<input
+  (input)="onInput($event, 123, user)"
+  class="border rounded mb-1"
+  [value]="phone" type="text"
+/>
+<br>
+<input
+  (ngModelChange)="user.name = $event"
+  class="border rounded mb-1"
+  [ngModel]="user.name"
+>
+<br>
+<input
+  class="border rounded mb-1"
+  [(ngModel)]="user.surname"
+>
+<hr>
+<form action="#" (ngSubmit)="onSubmit()">
+  <input name="login" [(ngModel)]="login" class="border rounded mb-1" type="text">
+  <br>
+  <input name="password" [(ngModel)]="password" class="border rounded mb-1" type="password">
+  <br>
+  <button class="border rounded mb-1">Submit</button>
+</form>

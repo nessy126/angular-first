@@ -14,6 +14,7 @@ import { BindComponent } from '../app/components/bind/bind.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { VocabularyComponent } from './components/vocabulary/vocabulary.component';
 import { VocabularyListComponent } from './components/vocabulary/vocabulary-list/vocabulary-list.component';
+import { BindingComponent } from './components/binding/binding.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { VocabularyListComponent } from './components/vocabulary/vocabulary-list
     BindComponent,
     CounterComponent,
     VocabularyComponent,
-    VocabularyListComponent
+    VocabularyListComponent,
+    BindingComponent
   ],
   imports: [
     BrowserModule,

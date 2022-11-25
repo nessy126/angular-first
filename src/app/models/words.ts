@@ -20,6 +20,8 @@ export interface IWords {
   english?: string,
   russian?: string,
   typeOfWord: TypeOfWordEnum,
-  topic?: string
+  topic?: string,
+  createdAt?: string,
+  updatedAt?: string
 
 }

@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { words } from '../../../data/vocabulary';
+import { Component, Input, OnInit } from '@angular/core';
 import { IWords } from '../../../models/words';
 
 @Component({
@@ -8,10 +7,14 @@ import { IWords } from '../../../models/words';
   styleUrls: ['./vocabulary-list.component.css']
 })
 
-export class VocabularyListComponent {
-  @Input() words: IWords[] = []
+export class VocabularyListComponent implements OnInit {
+  @Input() word: IWords
 
   checking() {
-    console.log(this.words);
+    console.log(this.word);
+  }
+
+  ngOnInit(): void {
+
   }
 }

@@ -6,7 +6,8 @@ export const words: IWords[] = [
     deutsch: "Wort",
     english: "Word",
     russian: "Слово",
-    typeOfWord: TypeOfWordEnum.Nomen
+    typeOfWord: TypeOfWordEnum.Nomen,
+    
   }
 
 ]

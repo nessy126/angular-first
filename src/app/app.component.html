@@ -1,7 +1,13 @@
 <app-global-error></app-global-error>
 
+<app-binding></app-binding>
 <app-header></app-header>
-<app-vocabulary></app-vocabulary>
+<app-vocabulary>
+  <app-vocabulary-list
+    *ngFor="let word of words$ | async"
+    [word]="word"
+  ></app-vocabulary-list>
+</app-vocabulary>
 <app-counter></app-counter>
 
 <div class="max-w-2xl container mx-auto pt-5">
