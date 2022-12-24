@@ -7,7 +7,7 @@ import { ISettings } from '../../../models/products';
   styleUrls: ['./content.component.css'],
 })
 
-export class ContentComponent implements DoCheck {
+export class CounterContentComponent implements DoCheck {
   public count: number = 0;
   public isDisabled: boolean = true;
   public isNull: boolean = false;
@@ -57,5 +57,5 @@ export class ContentComponent implements DoCheck {
     this.default = settings.default
     this.count = settings.default
   }
-  
+
 }

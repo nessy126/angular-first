@@ -1,13 +1,72 @@
+<button
+  class="border rounded bg-emerald-200 py-0.5 px-4 mr-2"
+  (click)="show = !show"
+>
+  Toggle
+</button>
+<button
+class="border rounded bg-cyan-200 py-0.5 px-4"
+(click)="title = title + 1">Modify Title</button>
+<app-parent *ngIf="show" [title]="title"></app-parent>
+
+<div>
+  <button
+    class="border rounded bg-orange-600 px-4 py-1 text-white"
+    (click)="menu.show()"
+  >
+    Open menu
+  </button>
+  <app-menu #menu>
+    <p>From App Component</p>
+  </app-menu>
+</div>
+
+<div>
+  <button
+    class="border rounded bg-orange-600 px-4 py-1 text-white"
+    (click)="menu1.show()"
+  >
+    Open menu
+  </button>
+  <app-menu #menu1>
+    <p>From App Component 2</p>
+  </app-menu>
+</div>
+
+<div>
+  <button
+    class="border rounded bg-orange-600 px-4 py-1 text-white"
+    (click)="menu2.show()"
+  >
+    Open menu
+  </button>
+  <app-menu #menu2>
+    <p>From App Component 3</p>
+  </app-menu>
+</div>
+
+<app-content [template]="ref">
+  <h2 class="header">Header</h2>
+  <p class="body">Body</p>
+  <footer class="footer">Footer</footer>
+</app-content>
+
+<ng-template #ref let-element>
+  <p>{{ element }} I am from App component</p>
+</ng-template>
+
+<app-foo [(counter)]="age" title="new Title"></app-foo>
+<hr />
+
 <app-global-error></app-global-error>
 
 <app-binding></app-binding>
+<hr />
+
 <app-header></app-header>
-<app-vocabulary>
-  <app-vocabulary-list
-    *ngFor="let word of words$ | async"
-    [word]="word"
-  ></app-vocabulary-list>
-</app-vocabulary>
+<div *ngIf="words$ | async as words">
+  <app-vocabulary [fooBar]="'123'" [words]="words"></app-vocabulary>
+</div>
 <app-counter></app-counter>
 
 <div class="max-w-2xl container mx-auto pt-5">

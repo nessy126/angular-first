@@ -1,0 +1,60 @@
+<h1>{{title.toUpperCase()}}</h1>
+
+<div *ngIf="!expression; else: elseCase">I'm bad</div>
+
+<ng-template #elseCase>
+  <div *ngIf="expression">I'm ok</div>
+</ng-template>
+
+<button (click)="expression = !expression">{{!expression ? "ok" : "bad"}}</button>
+
+<div>
+  <button (click)="dicreement()">-1</button>
+  <span>{{counter}}</span>
+  <button (click)=" increement()">+1</button>
+</div>
+
+<hr/>
+
+<button (click)="generateUser()" >Generate User</button>
+
+<ul *ngIf="deepObject?.user as user">
+  <li>Name is: {{user.name}}</li>
+  <li>Surname is: {{user.surname}}</li>
+</ul>
+
+<hr/>
+
+<ul>Names:
+  <li *ngFor="let user of users; index as i; trackBy: trackBy"  [ngSwitch]="user.template">
+    <p *ngSwitchCase="'bold'"><b> {{i + 1}}: {{user.name}}</b></p>
+    <p *ngSwitchCase="'italic'"><i> {{i + 1}}: {{user.name}}</i></p>
+    <p *ngSwitchDefault><span> {{i + 1}}: {{user.name}}</span></p>
+  </li>
+</ul>
+
+<hr/>
+
+<p [class.red]="true" [draggable]="true">{{title}}</p>
+<p [class]="orangeClass">Orange</p>
+<p [class.red-blue]="true" [draggable]="true">{{title}}</p>
+<p class="true false" [draggable]="true">{{title}}</p>
+<p class="'true false'" [draggable]="true">{{title}}</p>
+<p [class]="blueClass" [draggable]="true">blue</p>
+<p [class.red]="true" [draggable]="true">{{title}}</p>
+<p [class]="['red',  'green', 'blue']"  [draggable]="true">{{title + 4}}</p>
+<p [attr.data-foo]="123" [draggable]="true">{{title}}</p>
+<p [title]="title + ' 12'" [attr.style]="'color: red'">{{title}}</p>
+
+
+<td [colSpan]="1" >1</td>
+<td colspan="1" >1</td>
+<td [attr.colspan]="1" >1</td>
+
+<hr/>
+
+<p [style]="{'background-color': 'gray', 'margin-bottom': '10px', 'width': '150px'}">Styles</p>
+<p style="background-color: yellow; margin-bottom: 10px; width: 150px">Styles</p>
+<p [style.background-color]="'red'" >Styles</p>
+<p [style.background-color]="'red'" [style.width]="'100px'" [style.margin-bottom]="'10px'" >Styles</p>
+<p [style.background-color]="'red'" [style.width.px]="100" >Styles</p>

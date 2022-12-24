@@ -1,5 +1,5 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { IWords, TypeOfWord2LabelMapping, TypeOfWordEnum } from '../../models/words';
+import { Component, Input } from '@angular/core';
+import { IWords } from 'src/app/models/words';
 import { WordsService } from 'src/app/services/words.service';
 
 @Component({
@@ -8,38 +8,16 @@ import { WordsService } from 'src/app/services/words.service';
   styleUrls: ['./vocabulary.component.css'],
   // encapsulation: ViewEncapsulation.None
 })
-
-
 export class VocabularyComponent {
-  @Input() word: IWords[] = []
+  @Input()  words: IWords[] = [];
+  @Input()  isEdit: boolean
+  @Input('fooBar') foo = 'foo'
 
-  constructor(
-    private wordsService: WordsService
-  ) {
+  constructor(private wordsService: WordsService) {}
+
+  onEdit(isEdit: boolean):void {
+    console.log("isEdit in vocabulary", isEdit);
+    this.isEdit = isEdit
+    console.log("this.isEdit in vocabulary", this.isEdit);
   }
-
-  public TypeOfWord2LabelMapping = TypeOfWord2LabelMapping
-  public types = Object.values(TypeOfWordEnum)
-
-  public type = TypeOfWordEnum.Nomen
-  public deutsch: string = ''
-  public english: string = ''
-  public russian: string = ''
-  public id: Date = new Date()
-  public addedNewWord: object = {}
-
-  public addWord(): void {
-    const newWord: IWords = {
-      _id: this.id,
-      deutsch: this.deutsch,
-      english: this.english,
-      russian: this.russian,
-      typeOfWord: this.type,
-    }
-
-    this.addedNewWord = this.wordsService.addNewWord(newWord)
-    // words.push(newWord)
-    // console.log(words);
-  }
-
 }

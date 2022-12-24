@@ -1,0 +1,60 @@
+<div class="mr-auto ml-auto">
+  <form
+    class="max-w-4xl container border rounded py-4 px-6 mb-2 flex ml-auto mr-auto justify-center items-center md"
+    id="add-word"
+  >
+    <input
+      [(ngModel)]="deutsch"
+      class="border rounded mr-2 py-1 px-2"
+      type="text"
+      placeholder="Deutsch"
+      name="deutsch"
+    />
+    <input
+      [(ngModel)]="english"
+      class="border rounded mr-2 py-1 px-2"
+      type="text"
+      placeholder="English"
+      name="english"
+    />
+    <input
+      [(ngModel)]="russian"
+      class="border rounded mr-2 py-1 px-2"
+      type="text"
+      placeholder="Русский"
+      name="russian"
+    />
+    <div class="border rounded mr-2 py-1 px-2">
+      <label for="type-word">Type word</label>
+      <select
+        name="type-word"
+        id=""
+        [(ngModel)]="type"
+        form="add-word"
+        required
+      >
+        <option value=""></option>
+        <option [value]="type" *ngFor="let type of types">
+          {{ TypeOfWord2LabelMapping[type] }}
+        </option>
+      </select>
+    </div >
+    <button
+    *ngIf="!isEdit"
+      (click)="addWord()"
+      class="border rounded mr-2 bg-blue-500 text-white px-4 py-1"
+    >
+      Add word
+    </button>
+    <button
+    *ngIf="isEdit"
+      class="border rounded mr-2 bg-blue-500 text-white px-4 py-1"
+    >
+      Change word
+    </button>
+  </form>
+
+  <div>
+    <ng-content [isEdit]="isEdit" ></ng-content>
+  </div>
+</div>

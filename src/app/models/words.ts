@@ -15,7 +15,7 @@ export const TypeOfWord2LabelMapping = {
 // type ID = number | string
 
 export interface IWords {
-  _id: Date,
+  readonly _id?: Date,
   deutsch: string,
   english?: string,
   russian?: string,
