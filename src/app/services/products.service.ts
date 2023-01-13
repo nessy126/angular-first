@@ -16,6 +16,7 @@ export class ProductsService {
   }
 
   getAll(): Observable<IProduct[]> {
+    console.log('getAll prodact')
     return this.http.get<IProduct[]>('https://fakestoreapi.com/products', {
       params: new HttpParams({
         fromObject: { limit: 5 }

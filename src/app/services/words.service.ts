@@ -12,13 +12,14 @@ export class WordsService {
 
   getAll(): Observable<IWords[]> {
     return this.http
-      .get<IWords[]>('https://vocabulary-de.herokuapp.com/api/words')
+      .get<IWords[]>('https://api-vocabulary.onrender.com/api/words')
+      //https://vocabulary-de.herokuapp.com/
       .pipe(retry(2), catchError(this.errorHandler.bind(this)));
   }
 
   addNewWord(newWord: IWords): Observable<IWords> {
     return this.http.post<IWords>(
-      'https://vocabulary-de.herokuapp.com/api/words',
+      'https://api-vocabulary.onrender.com/api/words',
       newWord
     );
   }

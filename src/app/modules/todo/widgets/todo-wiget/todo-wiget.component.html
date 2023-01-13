@@ -1,0 +1,35 @@
+<h1>Workplace with TODO</h1>
+
+<form action="#" (ngSubmit)="onCreate()" >
+  <input type="text" name="title" placeholder="New to do"
+         [(ngModel)]="title"
+  class="border rounded bg-blue-200  px-2 py-1"
+  >
+  <button
+    type="submit"
+    [disabled]="!title"
+    class="border rounded bg-blue-900 text-blue-100 px-2 py-1"
+  >Add a new todo </button>
+</form>
+
+<ul>
+  <li *ngFor="let todo of todoList">
+    <input
+      type="checkbox"
+      name="isCompleted"
+      class="border rounded"
+      [checked]="todo.isCompleted"
+      (change)="onComplete(todo)"
+    >
+    <span *ngIf="!todo.isCompleted">{{todo.title}}</span>
+    <span *ngIf="todo.isCompleted"><del>{{todo.title}}</del></span>
+    <span
+      class=" border rounded bg-blue-900 text-blue-100 mr-4 px-2 py-1"
+      (click)="onRemove(todo.id)"
+    >Delete!</span>
+  </li>
+
+</ul>
+
+
+
