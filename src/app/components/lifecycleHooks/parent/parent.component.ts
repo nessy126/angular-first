@@ -30,20 +30,20 @@ export class ParentComponent implements OnChanges,
 
 
   constructor() {
-    console.log('ParentComponent.constructor', this.title);
+    // console.log('ParentComponent.constructor', this.title);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(console.log('ParentComponent.ngOnChanges', changes, 'thisTitle',this.title));
+    // console.log(console.log('ParentComponent.ngOnChanges', changes, 'thisTitle',this.title));
   }
 
   ngOnInit(): void {
-    console.log('ParentComponent.ngOnInit', this.title);
+    // console.log('ParentComponent.ngOnInit', this.title);
 
     // console.log(this.destroy$);
     fromEvent(document, 'click').pipe(
       takeUntil(this.destroy$)
-      ).subscribe(console.log) 
+      ).subscribe(console.log)
       // console.log(this.destroy$);
     }
 

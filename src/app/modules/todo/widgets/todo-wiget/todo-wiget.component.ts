@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ITodo } from '../../../../models/todo';
+import { Observable, tap } from 'rxjs';
+import { ITodo } from '../../models/todo';
+import { TodoService } from '../../todo-services/todo.service';
 
 @Component({
   selector: 'app-todo-wiget',
@@ -8,56 +9,33 @@ import { ITodo } from '../../../../models/todo';
   styleUrls: ['./todo-wiget.component.css'],
 })
 export class TodoWigetComponent implements OnInit {
-  title: string = '';
-  private httpClient: HttpClient;
-  public todoList: ITodo[];
+  title = '';
 
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
+  public todoList$: Observable<ITodo[]>;
+  public loading$: Observable<boolean>
+  loading: boolean = false;
+
+  constructor(private todoService: TodoService) {  }
 
   ngOnInit(): void {
-    this.httpClient.get<ITodo[]>('http://localhost:3000/rest/todo')
-      .subscribe(todoList => {
-        this.todoList = todoList;
-      });
-    console.log(this.todoList)
+    this.todoList$ = this.todoService.entities$;
+    this.loading$ = this.todoService.loading$
+    this.todoService.getAll();
   }
 
   onCreate(): void {
-    // console.log(this.title)
-    if(this.title) {
-      this.httpClient.post<ITodo>('http://localhost:3000/rest/todo', {
-        title: this.title, isCompleted: false
-      }).subscribe( todo => {
-        this.todoList.push(todo)
-        }
-      )
-      this.title = ''
+    if (this.title) {
+      this.todoService.addTodo(this.title);
+      this.title = '';
     }
   }
 
   onComplete(todo: ITodo): void {
-    this.httpClient.patch<ITodo>(`http://localhost:3000/rest/todo/${todo.id}`,
-      { isCompleted: !todo.isCompleted })
-      .subscribe( todoUpdated => {
-          this.todoList = this.todoList.map(el => {
-            if(el.id === todoUpdated.id) {
-            return   todoUpdated
-            } else {
-            return   el
-            }
-          })
-        }
-      )
+    this.todoService.updateTodo(todo);
   }
 
   onRemove(todoId: number): void {
-      this.httpClient.delete<void>(`http://localhost:3000/rest/todo/${todoId}`)
-        .subscribe( () => {
-          this.todoList = this.todoList.filter(todo => todoId !== todo.id )
-        }
-      )
+    this.todoService.removeTodo(todoId);
   }
 
 }

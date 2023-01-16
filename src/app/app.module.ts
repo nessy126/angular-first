@@ -21,6 +21,7 @@ import { ContentComponent } from './components/content/content.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ParentComponent } from './components/lifecycleHooks/parent/parent.component';
 import { ChildComponent } from './components/lifecycleHooks/child/child.component';
+import { FromEventComponent } from './components/from-event/from-event.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ChildComponent } from './components/lifecycleHooks/child/child.componen
     ContentComponent,
     MenuComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    FromEventComponent
   ],
   imports: [
     BrowserModule,
